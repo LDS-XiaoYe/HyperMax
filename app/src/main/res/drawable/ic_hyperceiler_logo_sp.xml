@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ This file is part of HyperMax.
+  -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="1080dp"
+    android:height="1080dp"
+    android:viewportWidth="1080"
+    android:viewportHeight="1080">
+    <path
+        android:pathData="M350,200 H730 A150,150 0 0 1 880,350 V730 A150,150 0 0 1 730,880 H350 A150,150 0 0 1 200,730 V350 A150,150 0 0 1 350,200 Z"
+        android:strokeColor="#FF101E36"
+        android:strokeWidth="82"
+        android:fillColor="#00000000" />
+    <group android:translateY="16">
+        <path
+            android:pathData="M622,547 H782 A75,75 0 0 1 857,622 V782 A75,75 0 0 1 782,857 H622 A75,75 0 0 1 547,782 V622 A75,75 0 0 1 622,547 Z"
+            android:fillColor="#2E000000" />
+    </group>
+    <path
+        android:pathData="M622,547 H782 A75,75 0 0 1 857,622 V782 A75,75 0 0 1 782,857 H622 A75,75 0 0 1 547,782 V622 A75,75 0 0 1 622,547 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient android:type="linear" android:startX="547" android:startY="547" android:endX="857" android:endY="857">
+                <item android:offset="0" android:color="#FF9DF5E6" />
+                <item android:offset="1" android:color="#FF35D5C0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path
+        android:pathData="M640,566 H764 A12,12 0 0 1 776,578 V578 A12,12 0 0 1 764,590 H640 A12,12 0 0 1 628,578 V578 A12,12 0 0 1 640,566 Z"
+        android:fillColor="#8CFFFFFF" />
+</vector>

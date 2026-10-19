@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ This file is part of HyperMax.
+  ~
+  ~ HyperMax is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License.
+  -->
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- HyperOS 4 launcher: layout, dock glass, folders, gestures, widgets. -->
+    <header
+        android:fragment="com.hypermax.hooker.HomeFragment"
+        android:icon="@drawable/ic_default"
+        android:id="@+id/home"
+        android:summary="com.miui.home"
+        android:title="@string/mihome" />
+
+    <!-- Negative screen: gadget serialization bridge. -->
+    <header
+        android:fragment="com.hypermax.hooker.PersonalAssistantFragment"
+        android:icon="@drawable/ic_default"
+        android:id="@+id/home_personal_assistant"
+        android:summary="com.miui.personalassistant"
+        android:title="@string/personal_assistant" />
+
+    <!-- SystemUI: seconds clock, weather chip, back-gesture hot zone. -->
+    <header
+        android:icon="@drawable/ic_default"
+        android:id="@+id/system_ui"
+        android:summary="com.android.systemui"
+        android:title="@string/system_ui"
+        app:inflatedXml="@xml/system_ui" />
+
+</preference-headers>

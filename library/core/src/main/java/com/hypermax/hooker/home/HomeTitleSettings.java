@@ -1,0 +1,120 @@
+/*
+  * This file is part of HyperMax.
+
+  * HyperCeiler is free software: you can redistribute it and/or modify
+  * it under the terms of the GNU Affero General Public License as
+  * published by the Free Software Foundation, either version 3 of the
+  * License.
+
+  * This program is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  * GNU Affero General Public License for more details.
+
+  * You should have received a copy of the GNU Affero General Public License
+  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+  * Copyright (C) 2023-2026 HyperCeiler Contributions
+*/
+package com.hypermax.hooker.home;
+
+import static com.hypermax.libhook.utils.api.DeviceHelper.Miui.isPad;
+import static com.hypermax.libhook.utils.api.DeviceHelper.System.isHyperOSVersion;
+import static com.hypermax.libhook.utils.api.DeviceHelper.System.isMoreHyperOSVersion;
+import static com.hypermax.sub.SubPickerActivity.INPUT_MODE;
+
+import android.content.Intent;
+import android.os.Bundle;
+
+import androidx.preference.Preference;
+import androidx.preference.SwitchPreference;
+
+import com.hypermax.core.R;
+import com.hypermax.dashboard.DashboardFragment;
+import com.hypermax.prefs.RecommendPreference;
+import com.hypermax.sub.SubPickerActivity;
+
+public class HomeTitleSettings extends DashboardFragment {
+
+    SwitchPreference mDisableMonoChrome;
+    SwitchPreference mDisableMonetColor;
+    SwitchPreference mDisableHideTheme;
+    Preference mIconTitleCustomization;
+    RecommendPreference mRecommend;
+
+    @Override
+    public int getPreferenceScreenResId() {
+        if (isMoreHyperOSVersion(3f)) return R.xml.home_title_new;
+        return R.xml.home_title;
+    }
+
+    @Override
+    public void initPrefs() {
+        mDisableMonoChrome = findPreference("prefs_key_home_other_icon_mono_chrome");
+
+        mDisableMonoChrome.setOnPreferenceChangeListener((preference, o) -> true);
+        mDisableMonetColor = findPreference("prefs_key_home_other_icon_monet_color");
+        mDisableMonetColor.setOnPreferenceChangeListener((preference, o) -> true);
+        mDisableHideTheme = findPreference("prefs_key_home_title_disable_hide_theme");
+
+        mIconTitleCustomization = findPreference("prefs_key_home_title_title_icontitlecustomization");
+        mIconTitleCustomization.setOnPreferenceClickListener(preference -> {
+            Intent intent = new Intent(getActivity(), SubPickerActivity.class);
+            intent.putExtra("mode", INPUT_MODE);
+            intent.putExtra("key", preference.getKey());
+            startActivity(intent);
+            return true;
+        });
+
+        if (isHyperOSVersion(4f)) {
+            mDisableHideTheme.setVisible(isPad());
+        } else {
+            setPreVisible(mDisableHideTheme, isPad());
+        }
+
+        // Only OS4 uses the native icon scale controls. Keep OS2/OS3 values and UI intact.
+        if (isHyperOSVersion(4f)) {
+            replaceIconSizeForOS4();
+        }
+
+        Bundle args1 = new Bundle();
+        Bundle args2 = new Bundle();
+        mRecommend = new RecommendPreference(requireContext());
+        getPreferenceScreen().addPreference(mRecommend);
+
+        args2.putString(":settings:fragment_args_key", "prefs_key_home_other_all_hide_app_activity");
+        mRecommend.addRecommendView(getString(R.string.home_other_app_icon_hide),
+            null,
+            HomeOtherSettings.class,
+            args2,
+            R.string.home_other
+        );
+
+        if (!isMoreHyperOSVersion(3f)) {
+            args1.putString(":settings:fragment_args_key", "prefs_key_home_other_shortcut_background_blur");
+            mRecommend.addRecommendView(getString(R.string.home_other_shortcut_background_blur),
+                null,
+                HomeOtherSettings.class,
+                args1,
+                R.string.home_other
+            );
+        }
+
+        HomeOS4AdaptationGate.apply(getPreferenceScreen(), getPreferenceScreenResId());
+    }
+
+    /** Relocate the existing native keys, without rewriting either generation's saved values. */
+    private void replaceIconSizeForOS4() {
+        findPreference("prefs_key_home_title_icon_size_enable").setVisible(false);
+        findPreference("prefs_key_home_title_icon_size").setVisible(false);
+        findPreference("prefs_key_home_layout_icon_scale_enable").setVisible(true);
+        findPreference("prefs_key_home_layout_icon_scale").setVisible(true);
+        findPreference("prefs_key_home_layout_small_folder_scale_enable").setVisible(true);
+        findPreference("prefs_key_home_layout_small_folder_scale").setVisible(true);
+        findPreference("prefs_key_home_layout_big_folder_scale_enable").setVisible(true);
+        findPreference("prefs_key_home_layout_big_folder_scale").setVisible(true);
+        findPreference("prefs_key_home_layout_widget_scale_enable").setVisible(true);
+        findPreference("prefs_key_home_layout_widget_scale").setVisible(true);
+
+    }
+}

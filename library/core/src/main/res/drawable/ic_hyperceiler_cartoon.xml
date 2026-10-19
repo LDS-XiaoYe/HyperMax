@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ This file is part of HyperMax.
+  ~
+  ~ HyperMax is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU Affero General Public License as
+  ~ published by the Free Software Foundation, either version 3 of the
+  ~ License.
+  -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="66dp"
+    android:height="66dp"
+    android:viewportWidth="432"
+    android:viewportHeight="432">
+    <path
+        android:pathData="M72,40 H360 A32,32 0 0 1 392,72 V360 A32,32 0 0 1 360,392 H72 A32,32 0 0 1 40,360 V72 A32,32 0 0 1 72,40 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="40"
+                android:startY="40"
+                android:endX="392"
+                android:endY="392">
+                <item android:offset="0" android:color="#FFFDFFFE" />
+                <item android:offset="1" android:color="#FFCDEFE7" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path
+        android:pathData="M150,168 V264 M258,168 V264 M150,216 H258"
+        android:strokeWidth="32"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round">
+        <aapt:attr name="android:strokeColor">
+            <gradient
+                android:type="linear"
+                android:startX="150"
+                android:startY="168"
+                android:endX="258"
+                android:endY="264">
+                <item android:offset="0" android:color="#FF0C3B36" />
+                <item android:offset="1" android:color="#FF11786C" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path
+        android:pathData="M310,142 C313,158 316,161 332,164 C316,167 313,170 310,186 C307,170 304,167 288,164 C304,161 307,158 310,142 Z"
+        android:fillColor="#FF12B5A4" />
+</vector>
