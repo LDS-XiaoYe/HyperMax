@@ -59,6 +59,13 @@
         <item name="actionBarBackground">@color/black</item>
     </style>
 
+    <style name="VersionBlockTheme" parent="Base.Theme.HyperMax.DayNight">
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:colorBackground">@color/black</item>
+        <item name="miuixColorPrimary">@color/black</item>
+        <item name="actionBarBackground">@color/black</item>
+    </style>
+
     <style name="Base.Theme.HyperCeiler" parent="Theme.AppCompat.DayNight">
         <item name="android:forceDarkAllowed">false</item>
         <item name="android:actionBarItemBackground">@android:color/transparent</item>

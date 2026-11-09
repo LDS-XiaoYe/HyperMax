@@ -85,4 +85,14 @@
     <string name="home_restart_launcher">重启桌面</string>
     <string name="home_restart_zygote">重启 Zygote</string>
     <string name="home_restart_zygote_confirm">确定立即重启 Android 运行时吗？应用会关闭，手机将暂时回到锁屏。</string>
+
+    <!--Version guard-->
+    <string name="version_block_downgrade_title">检测到版本降级</string>
+    <string name="version_block_downgrade_message">当前安装的 HyperMax 版本低于此设备此前使用过的版本。为避免旧版本导致配置或兼容性问题，请更新到不低于历史最高版本的版本后继续使用。</string>
+    <string name="version_block_corrupt_title">版本校验失败</string>
+    <string name="version_block_corrupt_message">HyperMax 本地版本记录无法正常读取或验证，暂时无法继续使用。请尝试安装最新版本；若问题仍然存在，可清除应用数据后重新初始化，但这会丢失应用本地配置。</string>
+    <string name="version_block_current_version">当前版本：%1$d</string>
+    <string name="version_block_required_version">最低允许版本：%1$d</string>
+    <string name="version_block_update">前往更新</string>
+    <string name="version_block_no_browser">没有可以打开项目页面的应用</string>
 </resources>

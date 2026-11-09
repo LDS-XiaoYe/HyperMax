@@ -17,6 +17,15 @@
   ~
   ~ Copyright (C) 2023-2026 HyperCeiler Contributions
   -->
-<manifest>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+
+        <activity
+            android:name=".versionguard.VersionBlockActivity"
+            android:exported="false"
+            android:theme="@style/VersionBlockTheme" />
+
+    </application>
 
 </manifest>

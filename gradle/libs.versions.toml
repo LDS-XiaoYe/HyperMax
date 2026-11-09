@@ -32,6 +32,10 @@ appiconloader = "1.5.0"
 lunarcalendar = "latest.release"
 superLyricApi = "3.4"
 
+# Test
+junit = "5.11.4"
+junitPlatform = "1.11.4"
+
 [libraries]
 # AndroidX
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
@@ -79,6 +83,10 @@ gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hyperfocusapi = { module = "com.github.ghhccghk:HyperFocusApi", version.ref = "hyperfocusapi" }
 lunarcalendar = { module = "com.xhinliang:LunarCalendar", version.ref = "lunarcalendar" }
 superlyricapi = { module = "com.github.HChenX:SuperLyricApi", version.ref = "superLyricApi" }
+
+# Test
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatform" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

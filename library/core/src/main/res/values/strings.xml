@@ -106,4 +106,14 @@
     <string name="home_restart_launcher">Restart launcher</string>
     <string name="home_restart_zygote">Restart Zygote</string>
     <string name="home_restart_zygote_confirm">Restart the Android runtime now? Apps will close and the phone will return to the lock screen.</string>
+
+    <!--Version guard-->
+    <string name="version_block_downgrade_title">Version downgrade detected</string>
+    <string name="version_block_downgrade_message">The installed HyperMax version is lower than the version this device has used before. To avoid configuration and compatibility problems caused by an older version, update to a version that is not lower than the highest previous version before continuing.</string>
+    <string name="version_block_corrupt_title">Version check failed</string>
+    <string name="version_block_corrupt_message">HyperMax cannot read or verify its local version record, so it cannot continue for now. Try installing the latest version. If the problem persists, clearing the app data will re-initialize the record, but the local configuration will be lost.</string>
+    <string name="version_block_current_version">Current version: %1$d</string>
+    <string name="version_block_required_version">Minimum allowed version: %1$d</string>
+    <string name="version_block_update">Update</string>
+    <string name="version_block_no_browser">No app can open the project page</string>
 </resources>
