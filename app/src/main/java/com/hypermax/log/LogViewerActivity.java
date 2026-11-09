@@ -40,6 +40,7 @@ import com.hypermax.R;
 import com.hypermax.common.base.BaseActivity;
 import com.hypermax.common.log.AndroidLog;
 import com.hypermax.common.widget.SearchEditText;
+import com.hypermax.core.versionguard.VersionGate;
 import com.hypermax.log.db.LogRepository;
 
 import java.io.File;
@@ -103,6 +104,7 @@ public class LogViewerActivity extends BaseActivity {
 
     @Override
     protected void onCreate() {
+        if (VersionGate.intercept(this)) return;
         super.onCreate();
         initViews();
         setupTab();

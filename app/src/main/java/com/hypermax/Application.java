@@ -28,6 +28,7 @@ import androidx.annotation.NonNull;
 
 import com.hypermax.common.log.AndroidLog;
 import com.hypermax.common.utils.PrefsBridge;
+import com.hypermax.core.versionguard.VersionGuardManager;
 import com.hypermax.home.banner.HomePageBannerManager;
 import com.hypermax.home.safemode.AppCrashStore;
 import com.hypermax.home.task.AppInitializer;
@@ -53,6 +54,8 @@ public class Application extends fan.app.Application
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(com.hypermax.utils.LanguageHelper.wrapContext(base));
+        // 最早的可执行时机：在任何 Activity 与业务任务之前开始版本水印校验
+        VersionGuardManager.install(this);
         AppInitializer.attach(this);
     }
 

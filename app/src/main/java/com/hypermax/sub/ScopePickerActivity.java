@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.hypermax.callback.SearchCallback;
 import com.hypermax.common.log.AndroidLog;
 import com.hypermax.common.utils.PermissionUtils;
+import com.hypermax.core.versionguard.VersionGate;
 import com.hypermax.model.adapter.AppDataAdapter;
 import com.hypermax.model.data.AppData;
 import com.hypermax.model.data.AppDataManager;
@@ -83,6 +84,8 @@ public class ScopePickerActivity extends AppCompatActivity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // 作用域选择会写入模块配置，必须等版本水印校验通过
+        if (VersionGate.intercept(this)) return;
         setContentView(com.hypermax.core.R.layout.activity_app_picker);
         setExtraHorizontalPaddingEnable(true);
 

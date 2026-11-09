@@ -24,6 +24,9 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
+import com.hypermax.R;
+import com.hypermax.core.versionguard.VersionGate;
+import com.hypermax.core.versionguard.VersionGuardManager;
 import com.hypermax.home.safemode.AppCrashStore;
 import com.hypermax.provision.activity.DefaultActivity;
 
@@ -46,6 +49,14 @@ public class SplashActivity extends AppCompatActivity {
             return;
         }
 
+        // 校验结果未知时先占住启动页，业务界面在水印校验通过后再打开
+        if (!VersionGuardManager.state().isResolved()) {
+            setContentView(R.layout.activity_version_checking);
+        }
+        VersionGate.resolve(this, state -> openNextPage());
+    }
+
+    private void openNextPage() {
         Intent intent;
         // 根据逻辑分发
         if (OobeUtils.isProvisioned(this)) {

@@ -28,6 +28,7 @@ import com.hypermax.common.log.AndroidLog;
 import com.hypermax.common.utils.AppSettingsStore;
 import com.hypermax.common.utils.PrefsBridge;
 import com.hypermax.common.utils.shell.IResult;
+import com.hypermax.core.versionguard.VersionGate;
 import com.hypermax.dashboard.base.ActivityCallback;
 import com.hypermax.home.HomePageFragment;
 import com.hypermax.home.IconTitleLoader;
@@ -76,6 +77,8 @@ public class HomePageActivity extends AppCompatActivity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // 版本水印未通过校验时不构建任何业务界面
+        if (VersionGate.intercept(this)) return;
         if (PersistConfig.isAprilFoolsThemeView) setTheme(R.style.HomePageAprilFoolsTheme);
         if (!OobeUtils.isProvisioned(this) && !OobeUtils.isDebugOobeMode(this)) {
             startActivity(new Intent(this, SplashActivity.class));

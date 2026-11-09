@@ -31,6 +31,7 @@ import androidx.fragment.app.Fragment;
 
 import com.hypermax.common.utils.AppLanguageHelper;
 import com.hypermax.core.R;
+import com.hypermax.core.versionguard.VersionGate;
 
 import fan.appcompat.app.AppCompatActivity;
 
@@ -44,6 +45,8 @@ public class SettingsBaseActivity extends AppCompatActivity implements ActivityC
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // 设置页负责修改模块配置，版本水印校验未通过时直接拦在入口
+        if (VersionGate.intercept(this)) return;
         //PageDecorator.applyGrayScaleFilter(this);
         //registerObserver(getApplicationContext());
         createUiFromIntent(savedInstanceState, getIntent());
