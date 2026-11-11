@@ -30,5 +30,3 @@ __pycache__/
 # never something to publish. The lasting conclusions live in handover/ and .workbuddy/.
 tests/lsposed-log-*/
 
-# AI agent working conventions (kept locally, not tracked)
-AGENTS.md
